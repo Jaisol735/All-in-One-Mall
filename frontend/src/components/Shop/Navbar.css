@@ -1,0 +1,38 @@
+.navbar {
+  background-color: #131921;
+  color: white;
+  padding: 15px 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.account-button {
+  text-decoration: none;
+}
+
+.account-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0c14b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #131921;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+}
+

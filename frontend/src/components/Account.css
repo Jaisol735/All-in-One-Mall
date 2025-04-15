@@ -1,0 +1,255 @@
+.account-page {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .account-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .account-container h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .account-info {
+    display: grid;
+    gap: 30px;
+  }
+  
+  .account-section {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .account-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+  
+  .account-section p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .balance {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007600;
+  }
+  
+  .deposit-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .deposit-button:hover {
+    background-color: #388e3c;
+  }
+  
+  .loading-container,
+  .error-message {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    border-radius: 4px;
+  }
+  
+  @media (min-width: 768px) {
+    .account-info {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .account-section:last-child {
+      grid-column: span 2;
+    }
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .deposit-modal {
+    width: 400px;
+    height: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  label {
+    display: block
+  
+  }
+  /* Overlay to darken background */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Modal box */
+  .deposit-modal {
+    width: 400px;
+    height: 400px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    animation: slideIn 0.3s ease-in-out;
+  }
+  
+  /* Modal Heading */
+  h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  /* Form Group */
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #555;
+  }
+  
+  /* Input Field */
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  input[type="number"]:focus {
+    border-color: #2ecc71;
+  }
+  
+  /* Button Container */
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  /* Cancel Button */
+  .cancel-button {
+    background: #ccc;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .cancel-button:hover {
+    background: #bbb;
+  }
+  
+  /* Confirm Button */
+  .confirm-button {
+    background: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .confirm-button:hover {
+    background: #27ae60;
+  }
+  
+  /* Disable button styles */
+  button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  

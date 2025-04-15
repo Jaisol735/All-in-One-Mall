@@ -1,0 +1,413 @@
+.game-content {
+  padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.game-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+}
+
+.game-controls {
+  margin-top: 30px;
+}
+
+.win-button {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 20px rgba(67, 206, 162, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.win-button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+}
+
+.win-button:hover:not(:disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(67, 206, 162, 0.4);
+}
+
+.win-button:hover:not(:disabled)::before {
+  transform: rotate(45deg) translate(10%, 10%);
+}
+
+.win-button:disabled {
+  background: linear-gradient(135deg, #cccccc 0%, #999999 100%);
+  color: #777;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.sudoku-game-content {
+  padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sudoku-game-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+}
+
+.sudoku-board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  gap: 1px;
+  background-color: #1a1a1a;
+  padding: 3px;
+  margin: 30px 0;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.sudoku-board::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(135deg, rgba(106, 17, 203, 0.1) 0%, rgba(37, 117, 252, 0.1) 100%);
+  border-radius: 18px;
+  z-index: -1;
+}
+
+.sudoku-cell {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.sudoku-cell:hover {
+  background-color: #f0f7ff;
+}
+
+.sudoku-cell.initial {
+  background-color: #f0f0f0;
+}
+
+.sudoku-cell.initial:hover {
+  background-color: #e8e8e8;
+}
+
+.sudoku-cell input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #6a11cb;
+  background: transparent;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.sudoku-cell.initial input {
+  color: #555;
+  font-weight: 600;
+}
+
+.sudoku-cell input:focus {
+  background-color: #e8f0fe;
+  color: #2575fc;
+}
+
+/* Add borders to create 3x3 boxes */
+.sudoku-cell:nth-child(3n) {
+  border-right: 2px solid #1a1a1a;
+}
+
+.sudoku-cell:nth-child(9n) {
+  border-right: none;
+}
+
+.sudoku-cell:nth-child(n + 19):nth-child(-n + 27),
+.sudoku-cell:nth-child(n + 46):nth-child(-n + 54) {
+  border-bottom: 2px solid #1a1a1a;
+}
+
+.difficulty-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.difficulty-buttons button {
+  padding: 12px 24px;
+  background-color: white;
+  border: 2px solid #e9ecef;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #495057;
+  position: relative;
+  overflow: hidden;
+}
+
+.difficulty-buttons button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(106, 17, 203, 0.1) 0%, rgba(37, 117, 252, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.difficulty-buttons button:hover {
+  border-color: #6a11cb;
+  color: #6a11cb;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.difficulty-buttons button:hover::before {
+  opacity: 1;
+}
+
+.difficulty-buttons button.active {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+}
+
+.game-controls {
+  margin-top: 30px;
+}
+
+.check-button {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 20px rgba(106, 17, 203, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.check-button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+}
+
+.check-button:hover:not(:disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(106, 17, 203, 0.4);
+}
+
+.check-button:hover:not(:disabled)::before {
+  transform: rotate(45deg) translate(10%, 10%);
+}
+
+.check-button:disabled {
+  background: linear-gradient(135deg, #cccccc 0%, #999999 100%);
+  color: #777;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.loading-message {
+  padding: 30px;
+  font-size: 18px;
+  color: #6a11cb;
+  position: relative;
+}
+
+.loading-message::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(106, 17, 203, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #6a11cb;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+/* Confetti animation for winning */
+@keyframes confetti {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #6a11cb;
+  top: -10px;
+  animation: confetti 5s ease-in-out infinite;
+}
+
+.confetti-piece:nth-child(2n) {
+  background-color: #2575fc;
+}
+
+.confetti-piece:nth-child(3n) {
+  background-color: #43cea2;
+}
+
+.confetti-piece:nth-child(4n) {
+  background-color: #ff6b6b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sudoku-cell {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sudoku-cell input {
+    font-size: 18px;
+  }
+
+  .difficulty-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .difficulty-buttons button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .check-button {
+    padding: 12px 25px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sudoku-cell {
+    width: 32px;
+    height: 32px;
+  }
+
+  .sudoku-cell input {
+    font-size: 16px;
+  }
+
+  .difficulty-buttons button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .check-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .loading-message {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sudoku-cell {
+    width: 28px;
+    height: 28px;
+  }
+
+  .sudoku-cell input {
+    font-size: 14px;
+  }
+
+  .difficulty-buttons {
+    gap: 8px;
+  }
+
+  .difficulty-buttons button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+

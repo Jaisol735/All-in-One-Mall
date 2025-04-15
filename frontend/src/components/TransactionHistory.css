@@ -1,0 +1,229 @@
+.transaction-page {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.transaction-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://cdn-icons-png.flaticon.com/512/3144/3144456.png") repeat;
+  background-size: 200px;
+  opacity: 0.03;
+  z-index: 0;
+}
+
+.transaction-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.transaction-container h1 {
+  margin-bottom: 30px;
+  color: #212529;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  position: relative;
+}
+
+.transaction-container h1::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff9900, #ff5722);
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 30px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+
+.loading {
+  color: #6c757d;
+  background-color: rgba(108, 117, 125, 0.1);
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 153, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #ff9900;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.empty-transactions {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.empty-transactions p {
+  font-size: 18px;
+  color: #6c757d;
+}
+
+.transaction-table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.transaction-table th,
+.transaction-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.transaction-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #212529;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.transaction-table tr {
+  transition: background-color 0.3s ease;
+}
+
+.transaction-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.transaction-purchase {
+  background-color: rgba(255, 235, 238, 0.3);
+}
+
+.transaction-reward {
+  background-color: rgba(232, 245, 233, 0.3);
+}
+
+.transaction-deposit {
+  background-color: rgba(227, 242, 253, 0.3);
+}
+
+.transaction-refunded {
+  background-color: rgba(255, 235, 238, 0.5);
+}
+
+.transaction-refunded td {
+  color: #c62828;
+}
+
+.transaction-amount {
+  font-weight: 600;
+}
+
+.transaction-purchase .transaction-amount {
+  color: #c62828;
+}
+
+.transaction-reward .transaction-amount,
+.transaction-deposit .transaction-amount {
+  color: #2e7d32;
+}
+
+.transaction-date {
+  white-space: nowrap;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.transaction-status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status-success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-failed {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.status-refunded {
+  background-color: #fff8e1;
+  color: #ff8f00;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .transaction-container {
+    padding: 20px;
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    padding: 12px 10px;
+    font-size: 14px;
+  }
+}
+
