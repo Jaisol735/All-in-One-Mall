@@ -1,0 +1,16 @@
+step 1 create a folder name project and put the backend file there
+Step 2 in project folder open terminal and give command npx create-react-app frontend
+then give command cd frontend
+then give command npm install react-router-dom
+then give command npm install axios
+in frontend there are lots of image and lots of file path change all path address
+there is sql file backend folder there run your sql command in my sql also change all insert image path (all images is the in the image folder in backend folder)
+now when every thing is done your full stack app is ready to run
+run app by 2 terminal which will open will of project folder
+
+run backend by
+cd backend and then node main.js
+
+run frontend by
+cd frontend and then npm start 
+ 
